@@ -1,12 +1,30 @@
 pipeline {
-  agent {
-    docker { image 'node:16-alpine' }
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'node --version'
-      }
+agent none
+    stages {
+        stage('Node Alpine') {
+            agent {
+                docker { image 'node:16-alpine' }
+            }
+            steps {
+                sh 'node --version'
+                sh 'pwd'
+            }
+        }
+        stage('Debian') {
+            agent {
+                docker { image 'debian:11' }
+            }
+            steps {
+                sh 'uname'
+            }
+        }
+        stage('Python') {
+            agent {
+                docker { image 'python:3.11.0rc1-bullseye' }
+            }
+            steps {
+                sh 'python --version'
+            }
+        }
     }
-  }
 }
