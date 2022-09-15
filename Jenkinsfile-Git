@@ -1,19 +1,20 @@
 pipeline {
 agent none
-    parameters {
-        choice(name: 'PYSCRIPT', choices: ['hello', 'goodbye'], description: 'Choose script')
-    }
     stages {
         stage('Python') {
             agent {
                 docker { image 'python:3.11.0rc1-bullseye' }
             }
             steps {
+                git branch: 'main', url: 'https://github.com/Ozymandias404/LearningJenkinsPython'
                 sh 'python --version'
-                checkout scm
                 sh 'ls -a'
-                sh "python PythonFiles/${params.PYSCRIPT}.py"
+                sh 'pwd'
+                sh 'cd Scripts'
+                sh 'ls -a'
+                sh 'pwd'
             }
         }
     }
 }
+
