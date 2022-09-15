@@ -10,9 +10,10 @@ agent none
                 sh 'python --version'
                 sh 'ls -a'
                 sh 'pwd'
-                sh 'cd Scripts'
-                sh 'ls -a'
-                sh 'pwd'
+                dir('Scripts') {
+                    sh "pwd"
+                    sh "ls -a"
+                }
             }
         }
     }
