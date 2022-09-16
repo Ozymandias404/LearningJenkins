@@ -1,13 +1,10 @@
 pipeline {
 agent none
     stages {
-        stage('Python') {
-            agent {
-                docker { image 'python:3.11.0rc1-bullseye' }
-            }
+        stage('Git') {
+            agent any
             steps {
                 git branch: 'main', url: 'https://github.com/Ozymandias404/LearningJenkinsPython'
-                sh 'python --version'
                 sh 'ls -a'
                 sh 'pwd'
                 dir('Scripts') {
