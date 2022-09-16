@@ -15,7 +15,7 @@ agent none
                 docker { image 'debian:11' }
             }
             steps {
-                sh 'uname'
+                sh 'uname -a'
             }
         }
         stage('Python') {
