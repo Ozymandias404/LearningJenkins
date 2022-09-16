@@ -42,7 +42,7 @@ agent any
         stage('Mail') {
             agent any
             steps {
-                emailext body: "${params.NAME}", subject: 'Test', to : 'marcin.buszta@grapeup.com', from: 'jenkins'
+                emailext body: "${params.NAME}", subject: 'Test', to : 'marcinbuszta404@gmail.com', from: 'jenkins'
             }
         }
     }
